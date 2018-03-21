@@ -11,6 +11,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Manager.Bitmap = new Bitmap(pictureBox1.BackgroundImage);
+            pictureBox1.BackgroundImage = Manager.Bitmap;
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.Check = true;
             Manager.SetPaintMode(Manager.PaintMode.DDA);
@@ -47,7 +48,7 @@ namespace WindowsFormsApp1
                 x += dx;
                 y += dy;
             }
-            pictureBox1.BackgroundImage = bitmap;
+            pictureBox1.Refresh();
         }
         private void BrezenheimLine(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
         {
@@ -81,7 +82,7 @@ namespace WindowsFormsApp1
                     x += s1;
                 e += 2 * dy;
             }
-            pictureBox1.BackgroundImage = bitmap;
+            pictureBox1.Refresh();
         }
         private void Plot(int x1, int y1, int x2, int y2, string color)
         {
@@ -119,15 +120,6 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.BrezenheimLine);
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            DDA(15, 31, 150, 66, "red", Manager.Bitmap);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DDA(31, 15, 100, 56, "blue", Manager.Bitmap);
-        }
     }
     public class Point
     {
@@ -162,8 +154,7 @@ namespace WindowsFormsApp1
             }
         }
         static bool _check;
-        static public bool Check { get => _check; set => _check = value; }
-
+        static public bool Check{ get => _check; set => _check = value; }
         static int _globalX, _globalY;
         static public int GlobalX { get => _globalX; set => _globalX = value; }
         static public int GlobalY { get => _globalY; set => _globalY = value; }
