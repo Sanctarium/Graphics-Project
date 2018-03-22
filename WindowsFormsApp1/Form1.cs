@@ -124,18 +124,14 @@ namespace WindowsFormsApp1
             Manager.DrawAccessible = true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.DDA);
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.BrezenheimLine);
 
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem8_Click(object sender, EventArgs e)
         {
-            
+            Manager.ClearBitmap();
+            pictureBox1.BackgroundImage = Manager.Bitmap;
         }
     }
     public class Point
@@ -147,7 +143,6 @@ namespace WindowsFormsApp1
             this.x = x;
             this.y = y;
         }
-        
         
     }
     public class Manager
