@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
             Manager.Bitmap = new Bitmap(pictureBox1.BackgroundImage);
             pictureBox1.BackgroundImage = Manager.Bitmap;
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
-            Manager.Check = true;
+            Manager.DrawAccessible = true;
             Manager.SetPaintMode(Manager.PaintMode.DDA);
         }
 
@@ -29,8 +29,23 @@ namespace WindowsFormsApp1
             if (num == 0) return 0;
             else return -1;
         }
-        private int GetPicX(int x) => x / 3;
-        private int GetPicY(int y) => y / 4;
+        private int GetPicX(int x)
+        {
+            if (x >= pictureBox1.ClientRectangle.Right)
+                return pictureBox1.ClientRectangle.Right;
+            else if (x <= pictureBox1.ClientRectangle.Left)
+                return pictureBox1.ClientRectangle.Left;
+            else return x;
+        }
+        private int GetPicY(int y)
+        {
+            if (y >= pictureBox1.ClientRectangle.Bottom)
+                return pictureBox1.ClientRectangle.Bottom;
+            else if (y <= pictureBox1.ClientRectangle.Top)
+                return pictureBox1.ClientRectangle.Top;
+            else return y;
+        }
+
         private void DDA(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
         {
             double length;
@@ -100,26 +115,28 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e) => Manager.SetGlobalXY(e.X, e.Y);
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e) => Manager.SetStartXY(e.X, e.Y);
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            
             int x1 = GetPicX(Manager.GlobalX), y1 = GetPicY(Manager.GlobalY), x2 = GetPicX(e.X), y2 = GetPicY(e.Y);
             Plot(x1, y1, x2, y2, "black");
-            Manager.Check = true;
+            Manager.DrawAccessible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Manager.ClearBitmap();
-            pictureBox1.BackgroundImage = Manager.Bitmap;
+            
         }
 
-        private void button1_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.DDA);
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.DDA);
 
-        private void button2_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.BrezenheimLine);
+        private void toolStripMenuItem3_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.BrezenheimLine);
 
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
     public class Point
     {
@@ -144,17 +161,17 @@ namespace WindowsFormsApp1
             Bitmap = (Bitmap)CleanBitmap.Clone();
         }
 
-        static public void SetGlobalXY(int x, int y)
+        static public void SetStartXY(int x, int y)
         {
-            if (Check)
+            if (DrawAccessible)
             {
                 GlobalX = x;
                 GlobalY = y;
-                Check = false;
+                DrawAccessible = false;
             }
         }
         static bool _check;
-        static public bool Check{ get => _check; set => _check = value; }
+        static public bool DrawAccessible{ get => _check; set => _check = value; }
         static int _globalX, _globalY;
         static public int GlobalX { get => _globalX; set => _globalX = value; }
         static public int GlobalY { get => _globalY; set => _globalY = value; }
