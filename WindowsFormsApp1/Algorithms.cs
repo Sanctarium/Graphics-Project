@@ -72,5 +72,35 @@ namespace WindowsFormsApp1
                 e += 2 * dy;
             }
         }
+        static public void BrezenheimCirle(int x, int y, int r, string colourname, Bitmap bitmap)
+        {
+            int x1 = 0;
+            int y1 = r;
+            int delta = 1 - 2 * r;
+            int error = 0;
+            while (y1 >= 0)
+            {
+                bitmap.SetPixel(toInteger(x + x1), toInteger(y + y1), Color.FromName(colourname));
+                bitmap.SetPixel(toInteger(x + x1), toInteger(y - y1), Color.FromName(colourname));
+                bitmap.SetPixel(toInteger(x - x1), toInteger(y + y1), Color.FromName(colourname));
+                bitmap.SetPixel(toInteger(x - x1), toInteger(y - y1), Color.FromName(colourname));
+                error = 2 * (delta + y1) - 1;
+                if (delta < 0 && error <= 0)
+                {
+                    x1++;
+                    delta += 2 * x1 + 1;
+                    continue;
+                }
+                if (delta > 0 && error > 0)
+                {
+                    y1--;
+                    delta -= 2 * y1 + 1;
+                    continue;
+                }
+                x1++;
+                delta += 2 * (x1 - y1);
+                y1--;
+            }
+        }
     }
 }
