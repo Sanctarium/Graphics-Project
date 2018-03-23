@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
             pictureBox1.BackgroundImage = Manager.Bitmap;
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.DrawAccessible = true;
-            Manager.SetPaintMode(Manager.PaintMode.DDA);
+            Manager.PaintMode = Manager.PaintType.DDA;
         }
 
         private int toInteger(double num)
@@ -101,15 +101,15 @@ namespace WindowsFormsApp1
         }
         private void Plot(int x1, int y1, int x2, int y2, string color)
         {
-            switch(Manager.GetPaintMode())
+            switch(Manager.PaintMode)
             {
-                case Manager.PaintMode.DDA:
+                case Manager.PaintType.DDA:
                     DDA(x1, y1, x2, y2, color, Manager.Bitmap);
                     break;
-                case Manager.PaintMode.BrezenheimLine:
+                case Manager.PaintType.BrezenheimLine:
                     BrezenheimLine(x1, y1, x2, y2, color, Manager.Bitmap);
                     break;
-                case Manager.PaintMode.BrezenheimCircle:
+                case Manager.PaintType.BrezenheimCircle:
                     //call BrezenheimCircle method
                     break;
             }
@@ -124,9 +124,9 @@ namespace WindowsFormsApp1
             Manager.DrawAccessible = true;
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.DDA);
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.DDA;
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e) => Manager.SetPaintMode(Manager.PaintMode.BrezenheimLine);
+        private void toolStripMenuItem3_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.BrezenheimLine;
 
         private void ToolStripMenuItem8_Click(object sender, EventArgs e)
         {
