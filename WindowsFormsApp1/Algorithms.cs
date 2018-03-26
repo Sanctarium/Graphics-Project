@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
         }
         static public void DDA(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
         {
+            Drawer drawer = new Drawer(bitmap);
             double length;
             double x, y;
             if (Math.Abs(x2 - x1) >= Math.Abs(y2 - y1))
@@ -34,13 +35,14 @@ namespace WindowsFormsApp1
             y = y1 + 0.5 * getSign(dy);
             for (int i = 0; i < length; i++)
             {
-                bitmap.SetPixel(toInteger(x), toInteger(y), Color.FromName(colorname));
+                drawer.Draw(toInteger(x), toInteger(y), colorname);
                 x += dx;
                 y += dy;
             }
         }
         static public void BrezenheimLine(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
         {
+            Drawer drawer = new Drawer(bitmap);
             int x = x1, y = y1;
             int dx = Math.Abs(x2 - x1), dy = Math.Abs(y2 - y1),
                 s1 = getSign(x2 - x1), s2 = getSign(y2 - y1);
@@ -56,7 +58,7 @@ namespace WindowsFormsApp1
                 trade = 0;
             for (int i = 1; i < dx; i++)
             {
-                bitmap.SetPixel(x, y, Color.FromName(colorname));
+                drawer.Draw(x, y, colorname);
                 while (e >= 0)
                 {
                     if (trade == 1)
@@ -74,16 +76,17 @@ namespace WindowsFormsApp1
         }
         static public void BrezenheimCirle(int x, int y, int r, string colourname, Bitmap bitmap)
         {
+            Drawer drawer = new Drawer(bitmap);
             int x1 = 0;
             int y1 = r;
             int delta = 1 - 2 * r;
             int error = 0;
             while (y1 >= 0)
             {
-                bitmap.SetPixel(toInteger(x + x1), toInteger(y + y1), Color.FromName(colourname));
-                bitmap.SetPixel(toInteger(x + x1), toInteger(y - y1), Color.FromName(colourname));
-                bitmap.SetPixel(toInteger(x - x1), toInteger(y + y1), Color.FromName(colourname));
-                bitmap.SetPixel(toInteger(x - x1), toInteger(y - y1), Color.FromName(colourname));
+                drawer.Draw(toInteger(x + x1), toInteger(y + y1), colourname);
+                drawer.Draw(toInteger(x + x1), toInteger(y - y1), colourname);
+                drawer.Draw(toInteger(x - x1), toInteger(y + y1), colourname);
+                drawer.Draw(toInteger(x - x1), toInteger(y - y1), colourname);
                 error = 2 * (delta + y1) - 1;
                 if (delta < 0 && error <= 0)
                 {
@@ -100,7 +103,6 @@ namespace WindowsFormsApp1
                 x1++;
                 delta += 2 * (x1 - y1);
                 y1--;
-                //her
             }
         }
     }
