@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
                     Algorithms.BrezenheimLine(x1, y1, x2, y2, color, Manager.Bitmap);
                     break;
                 case Manager.PaintType.BrezenheimCircle:
-                    //call BrezenheimCircle method
+                    Algorithms.BrezenheimCirle(x1, y1, 10, color, Manager.Bitmap);
                     break;
             }
         }
@@ -69,5 +69,12 @@ namespace WindowsFormsApp1
             Manager.ClearBitmap();
             pictureBox1.BackgroundImage = Manager.Bitmap;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripMenuItem6_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.BrezenheimCircle;
     }
 }
