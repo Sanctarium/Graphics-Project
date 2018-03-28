@@ -39,6 +39,7 @@
             this.ToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.обычнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.построчнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -118,7 +119,8 @@
             // ToolStripMenuItem7
             // 
             this.ToolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.обычнаяToolStripMenuItem});
+            this.обычнаяToolStripMenuItem,
+            this.построчнаяToolStripMenuItem});
             this.ToolStripMenuItem7.Name = "ToolStripMenuItem7";
             this.ToolStripMenuItem7.Size = new System.Drawing.Size(64, 20);
             this.ToolStripMenuItem7.Text = "Заливка";
@@ -136,6 +138,13 @@
             this.обычнаяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.обычнаяToolStripMenuItem.Text = "Обычная";
             this.обычнаяToolStripMenuItem.Click += new System.EventHandler(this.обычнаяToolStripMenuItem_Click);
+            // 
+            // построчнаяToolStripMenuItem
+            // 
+            this.построчнаяToolStripMenuItem.Name = "построчнаяToolStripMenuItem";
+            this.построчнаяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.построчнаяToolStripMenuItem.Text = "Построчная";
+            this.построчнаяToolStripMenuItem.Click += new System.EventHandler(this.построчнаяToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -169,6 +178,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem обычнаяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem построчнаяToolStripMenuItem;
     }
 }
 

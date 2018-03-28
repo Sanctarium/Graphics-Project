@@ -56,6 +56,10 @@ namespace WindowsFormsApp1
                     Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);
                     Algorithms.FullFill(x1, y1, oldcolor, color, Manager.Bitmap);
                     break;
+                case Manager.PaintType.StringFill:
+                    Color oldcolor1 = Manager.Bitmap.GetPixel(x1, y1);
+                    Algorithms.FullFill(x1, y1, oldcolor1, color, Manager.Bitmap);
+                    break;
             }
         }
 
@@ -81,6 +85,7 @@ namespace WindowsFormsApp1
         {
             Manager.ClearBitmap();
             pictureBox1.BackgroundImage = Manager.Bitmap;
+            Debug();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -104,5 +109,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void построчнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.StringFill;
     }
 }
