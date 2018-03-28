@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.DrawAccessible = true;
             Manager.PaintMode = Manager.PaintType.DDA;
-            Debug();
+         //   Debug();
         }
 
         private int GetPicX(int x)
@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
         {
             Manager.ClearBitmap();
             pictureBox1.BackgroundImage = Manager.Bitmap;
-            Debug();
+         //   Debug();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
