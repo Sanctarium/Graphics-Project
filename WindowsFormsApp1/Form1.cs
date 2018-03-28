@@ -6,7 +6,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
 
         private void Plot(int x1, int y1, int x2, int y2, string color)
         {
-            switch(Manager.PaintMode)
+            switch (Manager.PaintMode)
             {
                 case Manager.PaintType.DDA:
                     Algorithms.DDA(x1, y1, x2, y2, color, Manager.Bitmap);
@@ -45,12 +45,20 @@ namespace WindowsFormsApp1
                     Algorithms.BrezenheimLine(x1, y1, x2, y2, color, Manager.Bitmap);
                     break;
                 case Manager.PaintType.BrezenheimCircle:
-                    Algorithms.BrezenheimCirle(x1, y1, 10, color, Manager.Bitmap);
+                    int range = (int)Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+                    try
+                    { Algorithms.BrezenheimCirle(x1, y1, range, color, Manager.Bitmap); }
+                    catch (Exception)
+                    { }
                     break;
             }
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e) => Manager.SetStartXY(e.X, e.Y);
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Manager.SetStartXY(e.X, e.Y);
+            pictureBox1.Refresh();
+        }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {

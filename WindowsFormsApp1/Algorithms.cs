@@ -105,5 +105,6 @@ namespace WindowsFormsApp1
                 y1--;
             }
         }
+        static public void 
     }
 }
