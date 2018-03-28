@@ -1,0 +1,20 @@
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache

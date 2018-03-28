@@ -6,7 +6,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.DrawAccessible = true;
             Manager.PaintMode = Manager.PaintType.DDA;
+         //   Debug();
         }
 
         private int GetPicX(int x)
@@ -36,7 +37,7 @@ namespace WindowsFormsApp1
 
         private void Plot(int x1, int y1, int x2, int y2, string color)
         {
-            switch(Manager.PaintMode)
+            switch (Manager.PaintMode)
             {
                 case Manager.PaintType.DDA:
                     Algorithms.DDA(x1, y1, x2, y2, color, Manager.Bitmap);
@@ -45,12 +46,28 @@ namespace WindowsFormsApp1
                     Algorithms.BrezenheimLine(x1, y1, x2, y2, color, Manager.Bitmap);
                     break;
                 case Manager.PaintType.BrezenheimCircle:
-                    //call BrezenheimCircle method
+                    int range = (int)Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+                    try
+                    { Algorithms.BrezenheimCirle(x1, y1, range, color, Manager.Bitmap); }
+                    catch (Exception)
+                    { }
+                    break;
+                case Manager.PaintType.FullFill:
+                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);
+                    Algorithms.FullFill(x1, y1, oldcolor, color, Manager.Bitmap);
+                    break;
+                case Manager.PaintType.StringFill:
+                    Color oldcolor1 = Manager.Bitmap.GetPixel(x1, y1);
+                    Algorithms.FullFill(x1, y1, oldcolor1, color, Manager.Bitmap);
                     break;
             }
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e) => Manager.SetStartXY(e.X, e.Y);
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Manager.SetStartXY(e.X, e.Y);
+            pictureBox1.Refresh();
+        }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -68,6 +85,31 @@ namespace WindowsFormsApp1
         {
             Manager.ClearBitmap();
             pictureBox1.BackgroundImage = Manager.Bitmap;
+         //   Debug();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripMenuItem6_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.BrezenheimCircle;
+
+        private void обычнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.FullFill;
+
+        private void Debug()
+        {
+            Drawer drawer = new Drawer(Manager.Bitmap);
+            Color color = Manager.Bitmap.GetPixel(0, 0);
+            for (int i = 0; i < Manager.Bitmap.Width; i++)
+            {
+                for (int j = 0; j < Manager.Bitmap.Height; j++)
+                {
+                    Manager.Bitmap.SetPixel(i, j, Color.White);
+                }
+            }
+        }
+
+        private void построчнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.StringFill;
     }
 }

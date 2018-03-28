@@ -28,9 +28,9 @@ namespace WindowsFormsApp1
         static public PaintType PaintMode { get; set; }
         public enum PaintType
         {
-            DDA, BrezenheimLine, BrezenheimCircle
+            DDA, BrezenheimLine, BrezenheimCircle, FullFill, StringFill
         }
-        
+
         private Manager()
         {
 
