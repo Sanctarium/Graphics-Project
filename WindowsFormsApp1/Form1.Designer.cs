@@ -38,6 +38,7 @@
             this.ToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.обычнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,12 +111,14 @@
             // ToolStripMenuItem6
             // 
             this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
-            this.ToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(143, 22);
             this.ToolStripMenuItem6.Text = "Окружности";
             this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
             // ToolStripMenuItem7
             // 
+            this.ToolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.обычнаяToolStripMenuItem});
             this.ToolStripMenuItem7.Name = "ToolStripMenuItem7";
             this.ToolStripMenuItem7.Size = new System.Drawing.Size(64, 20);
             this.ToolStripMenuItem7.Text = "Заливка";
@@ -126,6 +129,13 @@
             this.ToolStripMenuItem8.Size = new System.Drawing.Size(71, 20);
             this.ToolStripMenuItem8.Text = "Очистить";
             this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
+            // 
+            // обычнаяToolStripMenuItem
+            // 
+            this.обычнаяToolStripMenuItem.Name = "обычнаяToolStripMenuItem";
+            this.обычнаяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обычнаяToolStripMenuItem.Text = "Обычная";
+            this.обычнаяToolStripMenuItem.Click += new System.EventHandler(this.обычнаяToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -158,6 +168,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem обычнаяToolStripMenuItem;
     }
 }
 

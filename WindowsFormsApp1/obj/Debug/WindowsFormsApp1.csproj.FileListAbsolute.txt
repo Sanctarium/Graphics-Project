@@ -17,3 +17,4 @@ H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug
 H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\Лабы\Комп. графика\Graphics-Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Kirill\Source\Repos\Graphics-Project3\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache

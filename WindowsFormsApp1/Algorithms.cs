@@ -105,6 +105,32 @@ namespace WindowsFormsApp1
                 y1--;
             }
         }
-        static public void 
+        static public void FullFill(int x, int y, Color pixelcolour, string newcolour, Bitmap bitmap)
+        {
+            Drawer drawer = new Drawer(bitmap);
+            Point p = new Point();
+            Stack<Point> pointStack = new Stack<Point>();
+            pointStack.Push(new Point(-1, 3));
+            pointStack.Push(new Point(x, y));
+            while (pointStack.Peek().x != -1)
+            {
+                p = pointStack.Pop();
+                if (bitmap.GetPixel(p.x, p.y) == pixelcolour) drawer.Draw(p.x, p.y, newcolour);
+                if (p.x + 1 < bitmap.Width && bitmap.GetPixel(p.x + 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x + 1, p.y));
+                if (p.x - 1 > 0 && bitmap.GetPixel(p.x - 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x - 1, p.y));
+                if (p.y + 1 < bitmap.Height && bitmap.GetPixel(p.x, p.y + 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y + 1));
+                if (p.y - 1 > 0 && bitmap.GetPixel(p.x, p.y - 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y - 1));
+            }
+        }
+        public struct Point
+        {
+            public int x;
+            public int y;
+            public Point(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
     }
 }

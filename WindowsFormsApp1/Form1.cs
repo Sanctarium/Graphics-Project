@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.DrawAccessible = true;
             Manager.PaintMode = Manager.PaintType.DDA;
+            Debug();
         }
 
         private int GetPicX(int x)
@@ -51,6 +52,10 @@ namespace WindowsFormsApp1
                     catch (Exception)
                     { }
                     break;
+                case Manager.PaintType.FullFill:
+                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);
+                    Algorithms.FullFill(x1, y1, oldcolor, color, Manager.Bitmap);
+                    break;
             }
         }
 
@@ -84,5 +89,20 @@ namespace WindowsFormsApp1
         }
 
         private void ToolStripMenuItem6_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.BrezenheimCircle;
+
+        private void обычнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.FullFill;
+
+        private void Debug()
+        {
+            Drawer drawer = new Drawer(Manager.Bitmap);
+            Color color = Manager.Bitmap.GetPixel(0, 0);
+            for (int i = 0; i < Manager.Bitmap.Width; i++)
+            {
+                for (int j = 0; j < Manager.Bitmap.Height; j++)
+                {
+                    Manager.Bitmap.SetPixel(i, j, Color.White);
+                }
+            }
+        }
     }
 }
