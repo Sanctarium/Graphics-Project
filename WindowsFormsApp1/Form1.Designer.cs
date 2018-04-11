@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,9 +38,10 @@
             this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.обычнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.построчнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -125,26 +127,26 @@
             this.ToolStripMenuItem7.Size = new System.Drawing.Size(64, 20);
             this.ToolStripMenuItem7.Text = "Заливка";
             // 
-            // ToolStripMenuItem8
-            // 
-            this.ToolStripMenuItem8.Name = "ToolStripMenuItem8";
-            this.ToolStripMenuItem8.Size = new System.Drawing.Size(71, 20);
-            this.ToolStripMenuItem8.Text = "Очистить";
-            this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
-            // 
             // обычнаяToolStripMenuItem
             // 
             this.обычнаяToolStripMenuItem.Name = "обычнаяToolStripMenuItem";
-            this.обычнаяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обычнаяToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.обычнаяToolStripMenuItem.Text = "Обычная";
             this.обычнаяToolStripMenuItem.Click += new System.EventHandler(this.обычнаяToolStripMenuItem_Click);
             // 
             // построчнаяToolStripMenuItem
             // 
             this.построчнаяToolStripMenuItem.Name = "построчнаяToolStripMenuItem";
-            this.построчнаяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.построчнаяToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.построчнаяToolStripMenuItem.Text = "Построчная";
             this.построчнаяToolStripMenuItem.Click += new System.EventHandler(this.построчнаяToolStripMenuItem_Click);
+            // 
+            // ToolStripMenuItem8
+            // 
+            this.ToolStripMenuItem8.Name = "ToolStripMenuItem8";
+            this.ToolStripMenuItem8.Size = new System.Drawing.Size(71, 20);
+            this.ToolStripMenuItem8.Text = "Очистить";
+            this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
             // 
             // Form1
             // 
@@ -179,6 +181,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem обычнаяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem построчнаяToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

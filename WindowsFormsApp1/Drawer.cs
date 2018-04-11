@@ -15,11 +15,11 @@ namespace WindowsFormsApp1
             Bitmap = bitmap;
         }
 
-        public void Draw(int x, int y, string colorname)
+        public void Draw(int x, int y, Color colorname)
         {
-            try { Bitmap.SetPixel(x, y, Color.FromName(colorname)); }
+            try { Bitmap.SetPixel(x, y, colorname); }
             catch (ArgumentOutOfRangeException)
-            { Bitmap.SetPixel(Bitmap.Width, Bitmap.Height, Color.FromName(colorname)); }
+            { Bitmap.SetPixel(Bitmap.Width, Bitmap.Height, colorname); }
 
         }
     }

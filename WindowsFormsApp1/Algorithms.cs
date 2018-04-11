@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace WindowsFormsApp1
 {
@@ -21,7 +22,7 @@ namespace WindowsFormsApp1
             if (num == 0) return 0;
             else return -1;
         }
-        static public void DDA(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
+        static public void DDA(int x1, int y1, int x2, int y2, Color colorname, Bitmap bitmap)
         {
             Drawer drawer = new Drawer(bitmap);
             double length;
@@ -40,7 +41,7 @@ namespace WindowsFormsApp1
                 y += dy;
             }
         }
-        static public void BrezenheimLine(int x1, int y1, int x2, int y2, string colorname, Bitmap bitmap)
+        static public void BrezenheimLine(int x1, int y1, int x2, int y2, Color colorname, Bitmap bitmap)
         {
             Drawer drawer = new Drawer(bitmap);
             int x = x1, y = y1;
@@ -74,7 +75,7 @@ namespace WindowsFormsApp1
                 e += 2 * dy;
             }
         }
-        static public void BrezenheimCirle(int x, int y, int r, string colourname, Bitmap bitmap)
+        static public void BrezenheimCirle(int x, int y, int r, Color colourname, Bitmap bitmap)
         {
             Drawer drawer = new Drawer(bitmap);
             int x1 = 0;
@@ -105,65 +106,72 @@ namespace WindowsFormsApp1
                 y1--;
             }
         }
-        static public void FullFill(int x, int y, Color pixelcolour, string newcolour, Bitmap bitmap)
+        static public void FullFill(int x, int y, Color pixelcolour, Color newcolour, Bitmap bitmap)
         {
             Drawer drawer = new Drawer(bitmap);
             Point p = new Point();
             Stack<Point> pointStack = new Stack<Point>();
             pointStack.Push(new Point(-1, 3));
-            pointStack.Push(new Point(x, y));
-            while (pointStack.Peek().x != -1)
+            if (bitmap.GetPixel(x, y).ToArgb() != newcolour.ToArgb())
             {
-                p = pointStack.Pop();
-                if (bitmap.GetPixel(p.x, p.y) == pixelcolour) drawer.Draw(p.x, p.y, newcolour);
-                if (p.x + 1 < bitmap.Width && bitmap.GetPixel(p.x + 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x + 1, p.y));
-                if (p.x - 1 > 0 && bitmap.GetPixel(p.x - 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x - 1, p.y));
-                if (p.y + 1 < bitmap.Height && bitmap.GetPixel(p.x, p.y + 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y + 1));
-                if (p.y - 1 > 0 && bitmap.GetPixel(p.x, p.y - 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y - 1));
+                pointStack.Push(new Point(x, y));
+                while (pointStack.Peek().x != -1)
+                {
+                    p = pointStack.Pop();
+                    if (bitmap.GetPixel(p.x, p.y) == pixelcolour) drawer.Draw(p.x, p.y, newcolour);
+                    if (p.x + 1 < bitmap.Width && bitmap.GetPixel(p.x + 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x + 1, p.y));
+                    if (p.x - 1 > 0 && bitmap.GetPixel(p.x - 1, p.y) == pixelcolour) pointStack.Push(new Point(p.x - 1, p.y));
+                    if (p.y + 1 < bitmap.Height && bitmap.GetPixel(p.x, p.y + 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y + 1));
+                    if (p.y - 1 > 0 && bitmap.GetPixel(p.x, p.y - 1) == pixelcolour) pointStack.Push(new Point(p.x, p.y - 1));
+                }
             }
         }
-        static public void StringFill(int x, int y, Color pixelcolour, string newcolour, Bitmap bitmap)
+        static public void StringFill(int x, int y, Color pixelcolour, Color newcolour, Bitmap bitmap)
         {
+
+
             Drawer drawer = new Drawer(bitmap);
             Point pt = new Point(x, y);
             Stack<Point> pixels = new Stack<Point>();
-            pixels.Push(pt);
-            while (pixels.Count != 0)
+            
+            if (bitmap.GetPixel(x, y).ToArgb() != newcolour.ToArgb())
             {
-                Point temp = pixels.Pop();
-                int y1 = temp.y;
-                while (y1 >= 0 && Manager.Bitmap.GetPixel(temp.x, y1) == pixelcolour)
+                pixels.Push(pt);
+                while (pixels.Count != 0)
                 {
-                    y1--;
-                }
-                y1++;
-                bool spanLeft = false;
-                bool spanRight = false;
-                while (y1 < Manager.Bitmap.Height && Manager.Bitmap.GetPixel(temp.x, y1) == pixelcolour)
-                {
-                    drawer.Draw(temp.x, y1, newcolour);
-
-                    if (!spanLeft && temp.x > 0 && Manager.Bitmap.GetPixel(temp.x - 1, y1) == pixelcolour)
+                    Point temp = pixels.Pop();
+                    int y1 = temp.y;
+                    while (y1 >= 0 && Manager.Bitmap.GetPixel(temp.x, y1) == pixelcolour)
                     {
-                        pixels.Push(new Point(temp.x - 1, y1));
-                        spanLeft = true;
-                    }
-                    else if (spanLeft && temp.x - 1 == 0 && Manager.Bitmap.GetPixel(temp.x - 1, y1) != pixelcolour)
-                    {
-                        spanLeft = false;
-                    }
-                    if (!spanRight && temp.x< Manager.Bitmap.Width - 1 && Manager.Bitmap.GetPixel(temp.x + 1, y1) == pixelcolour)
-                    {
-                        pixels.Push(new Point(temp.x + 1, y1));
-                        spanRight = true;
-                    }
-                    else if (spanRight && temp.x < Manager.Bitmap.Width - 1 && Manager.Bitmap.GetPixel(temp.x + 1, y1) != pixelcolour)
-                    {
-                        spanRight = false;
+                        y1--;
                     }
                     y1++;
+                    bool spanLeft = false;
+                    bool spanRight = false;
+                    while (y1 < Manager.Bitmap.Height && Manager.Bitmap.GetPixel(temp.x, y1) == pixelcolour)
+                    {
+                        drawer.Draw(temp.x, y1, newcolour);
+                        if (!spanLeft && temp.x > 0 && Manager.Bitmap.GetPixel(temp.x - 1, y1) == pixelcolour)
+                        {
+                            pixels.Push(new Point(temp.x - 1, y1));
+                            spanLeft = true;
+                        }
+                        else if (spanLeft && temp.x - 1 == 0 && Manager.Bitmap.GetPixel(temp.x - 1, y1) != pixelcolour)
+                        {
+                            spanLeft = false;
+                        }
+                        if (!spanRight && temp.x < Manager.Bitmap.Width - 1 && Manager.Bitmap.GetPixel(temp.x + 1, y1) == pixelcolour)
+                        {
+                            pixels.Push(new Point(temp.x + 1, y1));
+                            spanRight = true;
+                        }
+                        else if (spanRight && temp.x < Manager.Bitmap.Width - 1 && Manager.Bitmap.GetPixel(temp.x + 1, y1) != pixelcolour)
+                        {
+                            spanRight = false;
+                        }
+                        y1++;
+                    }
                 }
-
             }
         }
         public struct Point
