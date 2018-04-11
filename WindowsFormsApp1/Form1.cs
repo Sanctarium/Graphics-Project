@@ -52,19 +52,13 @@ namespace WindowsFormsApp1
                     catch (Exception)
                     { }
                     break;
-                case Manager.PaintType.FullFill:
-                   
-                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);
-                   
-                    Algorithms.FullFill(x1, y1, oldcolor, Color.Red, Manager.Bitmap);
-                  
+                case Manager.PaintType.FullFill:                   
+                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);                  
+                    Algorithms.FullFill(x1, y1, oldcolor, Color.Red, Manager.Bitmap);                 
                     break;
-                case Manager.PaintType.StringFill:
-                    
+                case Manager.PaintType.StringFill:                   
                     Color oldcolor1 = Manager.Bitmap.GetPixel(x1, y1);
-                    MessageBox.Show(color.Name + " " + oldcolor1.Name);
-                    Algorithms.StringFill(x1, y1, oldcolor1, Color.Blue, Manager.Bitmap);
-                  
+                    Algorithms.StringFill(x1, y1, oldcolor1, Color.Blue, Manager.Bitmap);                 
                     break;
             }
         }
