@@ -174,6 +174,8 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+
         public struct Point
         {
             public int x;
