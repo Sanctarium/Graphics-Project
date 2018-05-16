@@ -31,6 +31,14 @@ namespace WindowsFormsApp1
             DDA, BrezenheimLine, BrezenheimCircle, FullFill, StringFill
         }
 
+        static public int CanvasWidth { get; set; }
+        static public int CanvasHeight { get; set; }
+        static public void SetCanvasSize(int width, int height)
+        {
+            CanvasWidth = width;
+            CanvasHeight = height;
+        }
+
         private Manager()
         {
 
