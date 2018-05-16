@@ -30,6 +30,11 @@ namespace WindowsFormsApp1
         {
             DDA, BrezenheimLine, BrezenheimCircle, FullFill, StringFill
         }
+        static public AffineType AffineMode { get; set; }
+        public enum AffineType
+        {
+            Idential, LocalM, OXSymm, OYSymm, OOSym, ShiftX, ShiftY, Turn, BissTurn, MinusBissTurn, ParPer, Proec, Scale
+        }
 
         private Manager()
         {

@@ -52,16 +52,63 @@ namespace WindowsFormsApp1
                     catch (Exception)
                     { }
                     break;
-                case Manager.PaintType.FullFill:                   
-                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);                  
-                    Algorithms.FullFill(x1, y1, oldcolor, Color.Red, Manager.Bitmap);                 
+                case Manager.PaintType.FullFill:
+                    Color oldcolor = Manager.Bitmap.GetPixel(x1, y1);
+                    Algorithms.FullFill(x1, y1, oldcolor, Color.Red, Manager.Bitmap);
                     break;
-                case Manager.PaintType.StringFill:                   
+                case Manager.PaintType.StringFill:
                     Color oldcolor1 = Manager.Bitmap.GetPixel(x1, y1);
-                    Algorithms.StringFill(x1, y1, oldcolor1, Color.Blue, Manager.Bitmap);                 
+                    Algorithms.StringFill(x1, y1, oldcolor1, Color.Blue, Manager.Bitmap);
                     break;
             }
         }
+        private Point AffineWork(Point point, double a, double b, double c, double d)
+        {
+            Point newPoint;
+            switch (Manager.AffineMode)
+            {
+                case Manager.AffineType.BissTurn:
+                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+
+                case Manager.AffineType.Idential:
+                    return newPoint = Affine.affine(point, 1, 0, 1, 0);
+
+                case Manager.AffineType.LocalM:
+                    return newPoint = Affine.affine(point, a, 0, 0, d);
+
+                case Manager.AffineType.MinusBissTurn:
+                    return newPoint = Affine.affine(point, 0, -1, -1, 0);
+
+                case Manager.AffineType.OOSym:
+                    return newPoint = Affine.affine(point, -1, 0, 0, -1);
+
+                case Manager.AffineType.OXSymm:
+                    return newPoint = Affine.affine(point, 1, 0, 0, -1);
+
+                case Manager.AffineType.OYSymm:
+                    return newPoint = Affine.affine(point, -1, 0, 0, -1);
+
+                case Manager.AffineType.ParPer:
+                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+
+                case Manager.AffineType.Proec:
+                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+
+                case Manager.AffineType.Scale:
+                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+
+                case Manager.AffineType.ShiftX:
+                    return newPoint = Affine.affine(point, 1, b, 0, 1);
+
+                case Manager.AffineType.ShiftY:
+                    return newPoint = Affine.affine(point, 1, 0, c, 1);
+
+                case Manager.AffineType.Turn:
+                    return newPoint = Affine.affine(point,Math.Cos(a), Math.Sin(a),Math.Sin(a),Math.Cos(a));
+            }
+            return point = new Point(-1, -1);
+        }
+
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -97,5 +144,41 @@ namespace WindowsFormsApp1
         private void обычнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.FullFill;
 
         private void построчнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.StringFill;
+
+        private void тождественноеПреобразованиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Idential;
+
+
+        private void локальноеМаштабированиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.LocalM;
+
+
+        private void симметрияОтносХToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OXSymm;
+
+
+        private void симметрияОтносYToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OYSymm;
+
+
+        private void симметрияОтносительноНКToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OOSym;
+
+
+        private void сдвигВдольОХToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.ShiftX;
+
+
+        private void сдвигВдольOYToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.ShiftY;
+
+
+        private void поворотНаЗаданныйУголToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Turn;
+
+
+        private void симметрияОтносYxToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.BissTurn;
+
+
+        private void симметрияОтносYxToolStripMenuItem1_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.MinusBissTurn;
+
+
+        private void переносНаЗаданныйВекторToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Proec;
+
+
+        private void общееМаштабированиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Scale;
+
     }
 }

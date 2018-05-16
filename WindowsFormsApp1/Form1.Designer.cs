@@ -42,6 +42,19 @@
             this.построчнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.аффиныеПреобразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.тождественноеПреобразованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.локальноеМаштабированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.симметрияОтносХToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.симметрияОтносYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.симметрияОтносительноНКToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сдвигВдольОХToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сдвигВдольOYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поворотНаЗаданныйУголToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.симметрияОтносYxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.симметрияОтносYxToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.переносНаЗаданныйВекторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.общееМаштабированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +79,8 @@
             this.toolStripMenuItem1,
             this.ToolStripMenuItem4,
             this.ToolStripMenuItem7,
-            this.ToolStripMenuItem8});
+            this.ToolStripMenuItem8,
+            this.аффиныеПреобразованияToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(706, 24);
@@ -85,14 +99,14 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "DDA";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "Brezenheim";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -108,13 +122,13 @@
             // ToolStripMenuItem5
             // 
             this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
-            this.ToolStripMenuItem5.Size = new System.Drawing.Size(143, 22);
+            this.ToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem5.Text = "Дуги";
             // 
             // ToolStripMenuItem6
             // 
             this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
-            this.ToolStripMenuItem6.Size = new System.Drawing.Size(143, 22);
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem6.Text = "Окружности";
             this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
@@ -147,6 +161,109 @@
             this.ToolStripMenuItem8.Size = new System.Drawing.Size(71, 20);
             this.ToolStripMenuItem8.Text = "Очистить";
             this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
+            // 
+            // аффиныеПреобразованияToolStripMenuItem
+            // 
+            this.аффиныеПреобразованияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.тождественноеПреобразованиеToolStripMenuItem,
+            this.локальноеМаштабированиеToolStripMenuItem,
+            this.симметрияОтносХToolStripMenuItem,
+            this.симметрияОтносYToolStripMenuItem,
+            this.симметрияОтносительноНКToolStripMenuItem,
+            this.сдвигВдольОХToolStripMenuItem,
+            this.сдвигВдольOYToolStripMenuItem,
+            this.поворотНаЗаданныйУголToolStripMenuItem,
+            this.симметрияОтносYxToolStripMenuItem,
+            this.симметрияОтносYxToolStripMenuItem1,
+            this.переносНаЗаданныйВекторToolStripMenuItem,
+            this.общееМаштабированиеToolStripMenuItem});
+            this.аффиныеПреобразованияToolStripMenuItem.Name = "аффиныеПреобразованияToolStripMenuItem";
+            this.аффиныеПреобразованияToolStripMenuItem.Size = new System.Drawing.Size(168, 20);
+            this.аффиныеПреобразованияToolStripMenuItem.Text = "Аффиные преобразования";
+            // 
+            // тождественноеПреобразованиеToolStripMenuItem
+            // 
+            this.тождественноеПреобразованиеToolStripMenuItem.Name = "тождественноеПреобразованиеToolStripMenuItem";
+            this.тождественноеПреобразованиеToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.тождественноеПреобразованиеToolStripMenuItem.Text = "Тождественное преобразование";
+            this.тождественноеПреобразованиеToolStripMenuItem.Click += new System.EventHandler(this.тождественноеПреобразованиеToolStripMenuItem_Click);
+            // 
+            // локальноеМаштабированиеToolStripMenuItem
+            // 
+            this.локальноеМаштабированиеToolStripMenuItem.Name = "локальноеМаштабированиеToolStripMenuItem";
+            this.локальноеМаштабированиеToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.локальноеМаштабированиеToolStripMenuItem.Text = "Локальное маштабирование";
+            this.локальноеМаштабированиеToolStripMenuItem.Click += new System.EventHandler(this.локальноеМаштабированиеToolStripMenuItem_Click);
+            // 
+            // симметрияОтносХToolStripMenuItem
+            // 
+            this.симметрияОтносХToolStripMenuItem.Name = "симметрияОтносХToolStripMenuItem";
+            this.симметрияОтносХToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.симметрияОтносХToolStripMenuItem.Text = "Симметрия относ. Х";
+            this.симметрияОтносХToolStripMenuItem.Click += new System.EventHandler(this.симметрияОтносХToolStripMenuItem_Click);
+            // 
+            // симметрияОтносYToolStripMenuItem
+            // 
+            this.симметрияОтносYToolStripMenuItem.Name = "симметрияОтносYToolStripMenuItem";
+            this.симметрияОтносYToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.симметрияОтносYToolStripMenuItem.Text = "Симметрия относ. Y";
+            this.симметрияОтносYToolStripMenuItem.Click += new System.EventHandler(this.симметрияОтносYToolStripMenuItem_Click);
+            // 
+            // симметрияОтносительноНКToolStripMenuItem
+            // 
+            this.симметрияОтносительноНКToolStripMenuItem.Name = "симметрияОтносительноНКToolStripMenuItem";
+            this.симметрияОтносительноНКToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.симметрияОтносительноНКToolStripMenuItem.Text = "Симметрия относительно НК";
+            this.симметрияОтносительноНКToolStripMenuItem.Click += new System.EventHandler(this.симметрияОтносительноНКToolStripMenuItem_Click);
+            // 
+            // сдвигВдольОХToolStripMenuItem
+            // 
+            this.сдвигВдольОХToolStripMenuItem.Name = "сдвигВдольОХToolStripMenuItem";
+            this.сдвигВдольОХToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.сдвигВдольОХToolStripMenuItem.Text = "Сдвиг вдоль ОХ";
+            this.сдвигВдольОХToolStripMenuItem.Click += new System.EventHandler(this.сдвигВдольОХToolStripMenuItem_Click);
+            // 
+            // сдвигВдольOYToolStripMenuItem
+            // 
+            this.сдвигВдольOYToolStripMenuItem.Name = "сдвигВдольOYToolStripMenuItem";
+            this.сдвигВдольOYToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.сдвигВдольOYToolStripMenuItem.Text = "Сдвиг вдоль OY";
+            this.сдвигВдольOYToolStripMenuItem.Click += new System.EventHandler(this.сдвигВдольOYToolStripMenuItem_Click);
+            // 
+            // поворотНаЗаданныйУголToolStripMenuItem
+            // 
+            this.поворотНаЗаданныйУголToolStripMenuItem.Name = "поворотНаЗаданныйУголToolStripMenuItem";
+            this.поворотНаЗаданныйУголToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.поворотНаЗаданныйУголToolStripMenuItem.Text = "Поворот на заданный угол";
+            this.поворотНаЗаданныйУголToolStripMenuItem.Click += new System.EventHandler(this.поворотНаЗаданныйУголToolStripMenuItem_Click);
+            // 
+            // симметрияОтносYxToolStripMenuItem
+            // 
+            this.симметрияОтносYxToolStripMenuItem.Name = "симметрияОтносYxToolStripMenuItem";
+            this.симметрияОтносYxToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.симметрияОтносYxToolStripMenuItem.Text = "Симметрия относ. y=x";
+            this.симметрияОтносYxToolStripMenuItem.Click += new System.EventHandler(this.симметрияОтносYxToolStripMenuItem_Click);
+            // 
+            // симметрияОтносYxToolStripMenuItem1
+            // 
+            this.симметрияОтносYxToolStripMenuItem1.Name = "симметрияОтносYxToolStripMenuItem1";
+            this.симметрияОтносYxToolStripMenuItem1.Size = new System.Drawing.Size(253, 22);
+            this.симметрияОтносYxToolStripMenuItem1.Text = "Симметрия относ. y=-x";
+            this.симметрияОтносYxToolStripMenuItem1.Click += new System.EventHandler(this.симметрияОтносYxToolStripMenuItem1_Click);
+            // 
+            // переносНаЗаданныйВекторToolStripMenuItem
+            // 
+            this.переносНаЗаданныйВекторToolStripMenuItem.Name = "переносНаЗаданныйВекторToolStripMenuItem";
+            this.переносНаЗаданныйВекторToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.переносНаЗаданныйВекторToolStripMenuItem.Text = "Перенос на заданный вектор";
+            this.переносНаЗаданныйВекторToolStripMenuItem.Click += new System.EventHandler(this.переносНаЗаданныйВекторToolStripMenuItem_Click);
+            // 
+            // общееМаштабированиеToolStripMenuItem
+            // 
+            this.общееМаштабированиеToolStripMenuItem.Name = "общееМаштабированиеToolStripMenuItem";
+            this.общееМаштабированиеToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.общееМаштабированиеToolStripMenuItem.Text = "Общее маштабирование";
+            this.общееМаштабированиеToolStripMenuItem.Click += new System.EventHandler(this.общееМаштабированиеToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -182,6 +299,19 @@
         private System.Windows.Forms.ToolStripMenuItem обычнаяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem построчнаяToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem аффиныеПреобразованияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem тождественноеПреобразованиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem локальноеМаштабированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem симметрияОтносХToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem симметрияОтносYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem симметрияОтносительноНКToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сдвигВдольОХToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сдвигВдольOYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поворотНаЗаданныйУголToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem симметрияОтносYxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem симметрияОтносYxToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem переносНаЗаданныйВекторToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem общееМаштабированиеToolStripMenuItem;
     }
 }
 
