@@ -8,14 +8,31 @@ namespace WindowsFormsApp1
 {
     public class Point
     {
-       public int x, y;
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public double DX { get; set; }
+        public double DY { get; set; }
 
         public Point(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            X = x;
+            Y = y;
         }
-        
+        public Point(double x, double y)
+        {
+            DX = x;
+            DY = y;
+        }
+        public Point GetAffinePoint(double x, double y)
+        {
+            return new Point(x, y);
+        }//обратное направление у?
+        public void AffineToCanvasPoint()
+        {
+            X = (int)(Manager.CanvasWidth / 2 + DX);
+            Y = (int)(Manager.CanvasHeight / 2 + DY);
+        }
 
     }
 }

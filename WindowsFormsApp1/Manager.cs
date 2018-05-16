@@ -35,7 +35,13 @@ namespace WindowsFormsApp1
         {
             Idential, LocalM, OXSymm, OYSymm, OOSym, ShiftX, ShiftY, Turn, BissTurn, MinusBissTurn, ParPer, Proec, Scale
         }
-
+        static public int CanvasWidth { get; set; }
+        static public int CanvasHeight { get; set; }
+        static public void SetCanvasSize(int width, int height)
+        {
+            CanvasWidth = width;
+            CanvasHeight = height;
+        }
         private Manager()
         {
 
