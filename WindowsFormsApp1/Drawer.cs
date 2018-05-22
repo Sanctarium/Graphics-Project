@@ -22,12 +22,12 @@ namespace WindowsFormsApp1
             { Bitmap.SetPixel(Bitmap.Width, Bitmap.Height, colorname); }
 
         }
-        public void DrawAffineTriangle(Point p1, Point p2, Point p3)
+      static  public void DrawAffineTriangle(Point p1, Point p2, Point p3, Bitmap bitmap)
         {
-            Algorithms.DDA(p1.X, p1.Y, p2.X, p2.Y, Color.Black, Bitmap);
-            Algorithms.DDA(p2.X, p2.Y, p3.X, p3.Y, Color.Black, Bitmap);
-            Algorithms.DDA(p3.X, p3.Y, p1.X, p1.Y, Color.Black, Bitmap);
-            Algorithms.FullFill(p1.X + p2.X + p3.X, p1.Y + p2.Y + p3.Y, Color.White, Color.Yellow, Bitmap);
+            Algorithms.DDA((int)p1.X, (int)p1.Y, (int)p2.X, (int)p2.Y, Color.Black, bitmap);
+            Algorithms.DDA((int)p2.X, (int)p2.Y, (int)p3.X, (int)p3.Y, Color.Black, bitmap);
+            Algorithms.DDA((int)p3.X, (int)p3.Y, (int)p1.X, (int)p1.Y, Color.Black, bitmap);
+            
         }
     }
 }

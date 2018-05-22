@@ -41,7 +41,6 @@
             this.обычнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.построчнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.аффиныеПреобразованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.тождественноеПреобразованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.локальноеМаштабированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +54,14 @@
             this.симметрияОтносYxToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.переносНаЗаданныйВекторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.общееМаштабированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.треугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,10 +87,11 @@
             this.ToolStripMenuItem4,
             this.ToolStripMenuItem7,
             this.ToolStripMenuItem8,
-            this.аффиныеПреобразованияToolStripMenuItem});
+            this.аффиныеПреобразованияToolStripMenuItem,
+            this.треугольникToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(706, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(798, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,18 +103,19 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
             this.toolStripMenuItem1.Text = "Линии";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem2.Text = "DDA";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem3.Text = "Brezenheim";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -122,13 +131,13 @@
             // ToolStripMenuItem5
             // 
             this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
-            this.ToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem5.Size = new System.Drawing.Size(143, 22);
             this.ToolStripMenuItem5.Text = "Дуги";
             // 
             // ToolStripMenuItem6
             // 
             this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
-            this.ToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(143, 22);
             this.ToolStripMenuItem6.Text = "Окружности";
             this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
@@ -265,12 +274,74 @@
             this.общееМаштабированиеToolStripMenuItem.Text = "Общее маштабирование";
             this.общееМаштабированиеToolStripMenuItem.Click += new System.EventHandler(this.общееМаштабированиеToolStripMenuItem_Click);
             // 
+            // треугольникToolStripMenuItem
+            // 
+            this.треугольникToolStripMenuItem.Name = "треугольникToolStripMenuItem";
+            this.треугольникToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.треугольникToolStripMenuItem.Text = "Треугольник";
+            this.треугольникToolStripMenuItem.Click += new System.EventHandler(this.треугольникToolStripMenuItem_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(699, 48);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(87, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(699, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Первая точка";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(702, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Вторая точка";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(702, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(87, 20);
+            this.textBox2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(705, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Третья точка";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(705, 161);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(87, 20);
+            this.textBox3.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.white;
-            this.ClientSize = new System.Drawing.Size(706, 423);
+            this.ClientSize = new System.Drawing.Size(798, 423);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -312,6 +383,13 @@
         private System.Windows.Forms.ToolStripMenuItem симметрияОтносYxToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem переносНаЗаданныйВекторToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem общееМаштабированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem треугольникToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

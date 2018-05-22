@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
             Manager.CleanBitmap = (Bitmap)pictureBox1.BackgroundImage.Clone();
             Manager.DrawAccessible = true;
             Manager.PaintMode = Manager.PaintType.DDA;
+            Point.x0 = pictureBox1.BackgroundImage.Width / 2;
+            Point.y0 = pictureBox1.BackgroundImage.Height / 2;
         }
 
         private int GetPicX(int x)
@@ -62,51 +64,52 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-        private Point AffineWork(Point point, double a, double b, double c, double d)
+        private void AffineWork(double a, double b, double c, double d)
         {
-            Point newPoint;
             switch (Manager.AffineMode)
             {
                 case Manager.AffineType.BissTurn:
-                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
-
+                    Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, a, b, c, d);
+                    
+                    return;
                 case Manager.AffineType.Idential:
-                    return newPoint = Affine.affine(point, 1, 0, 1, 0);
+                    return;
 
                 case Manager.AffineType.LocalM:
-                    return newPoint = Affine.affine(point, a, 0, 0, d);
+                    return;
 
                 case Manager.AffineType.MinusBissTurn:
-                    return newPoint = Affine.affine(point, 0, -1, -1, 0);
+                    return;
 
                 case Manager.AffineType.OOSym:
-                    return newPoint = Affine.affine(point, -1, 0, 0, -1);
+                    return;
 
                 case Manager.AffineType.OXSymm:
-                    return newPoint = Affine.affine(point, 1, 0, 0, -1);
+                    return;
 
                 case Manager.AffineType.OYSymm:
-                    return newPoint = Affine.affine(point, -1, 0, 0, -1);
+                    return;
 
                 case Manager.AffineType.ParPer:
-                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+                    return;
 
                 case Manager.AffineType.Proec:
-                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+                    return;
 
                 case Manager.AffineType.Scale:
-                    return newPoint = Affine.affine(point, 0, 1, 1, 0);
+                    return;
 
                 case Manager.AffineType.ShiftX:
-                    return newPoint = Affine.affine(point, 1, b, 0, 1);
+                    return;
 
                 case Manager.AffineType.ShiftY:
-                    return newPoint = Affine.affine(point, 1, 0, c, 1);
+                    return;
 
                 case Manager.AffineType.Turn:
-                    return newPoint = Affine.affine(point,Math.Cos(a), Math.Sin(a),Math.Sin(a),Math.Cos(a));
+                    return;
             }
-            return point = new Point(-1, -1);
+            pictureBox1.Refresh();
+            return;
         }
 
 
@@ -180,5 +183,20 @@ namespace WindowsFormsApp1
 
         private void общееМаштабированиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Scale;
 
+        private void треугольникToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Drawer.DrawAffineTriangle(Manager.LabelPoint(textBox1.Text), Manager.LabelPoint(textBox2.Text), Manager.LabelPoint(textBox3.Text), Manager.Bitmap);
+            pictureBox1.Refresh();
+        }
+
+private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

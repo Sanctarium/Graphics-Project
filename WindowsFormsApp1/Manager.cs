@@ -42,6 +42,15 @@ namespace WindowsFormsApp1
             CanvasWidth = width;
             CanvasHeight = height;
         }
+        public static Point LabelPoint(string s)
+        {
+            string[] buf = s.Split(' ');
+            Point p = new Point(int.Parse(buf[0]), int.Parse(buf[1]));
+            return p;
+
+
+
+        }
         private Manager()
         {
 
