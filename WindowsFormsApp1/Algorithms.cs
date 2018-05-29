@@ -128,8 +128,6 @@ namespace WindowsFormsApp1
         }
         static public void StringFill(int x, int y, Color pixelcolour, Color newcolour, Bitmap bitmap)
         {
-
-
             Drawer drawer = new Drawer(bitmap);
             Point pt = new Point(x, y);
             Stack<Point> pixels = new Stack<Point>();

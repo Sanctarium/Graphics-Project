@@ -18,6 +18,9 @@ namespace WindowsFormsApp1
             Manager.PaintMode = Manager.PaintType.DDA;
             Point.x0 = pictureBox1.BackgroundImage.Width / 2;
             Point.y0 = pictureBox1.BackgroundImage.Height / 2;
+            Algorithms.BrezenheimCirle(Point.x0, Point.y0, 3, Color.Black, Manager.Bitmap);
+            pictureBox1.Refresh();
+            
         }
 
         private int GetPicX(int x)
@@ -64,55 +67,7 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-        private void AffineWork(double a, double b, double c, double d)
-        {
-            switch (Manager.AffineMode)
-            {
-                case Manager.AffineType.BissTurn:
-                    Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, a, b, c, d);
-                    
-                    return;
-                case Manager.AffineType.Idential:
-                    return;
-
-                case Manager.AffineType.LocalM:
-                    return;
-
-                case Manager.AffineType.MinusBissTurn:
-                    return;
-
-                case Manager.AffineType.OOSym:
-                    return;
-
-                case Manager.AffineType.OXSymm:
-                    return;
-
-                case Manager.AffineType.OYSymm:
-                    return;
-
-                case Manager.AffineType.ParPer:
-                    return;
-
-                case Manager.AffineType.Proec:
-                    return;
-
-                case Manager.AffineType.Scale:
-                    return;
-
-                case Manager.AffineType.ShiftX:
-                    return;
-
-                case Manager.AffineType.ShiftY:
-                    return;
-
-                case Manager.AffineType.Turn:
-                    return;
-            }
-            pictureBox1.Refresh();
-            return;
-        }
-
-
+ 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             Manager.SetStartXY(e.X, e.Y);
@@ -148,35 +103,80 @@ namespace WindowsFormsApp1
 
         private void построчнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.StringFill;
 
-        private void тождественноеПреобразованиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Idential;
+        private void тождественноеПреобразованиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 1, 0, 0, 1);
+            pictureBox1.Refresh();
+
+        }
+        private void локальноеМаштабированиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text,double.Parse( textBox4.Text), 0, 0, 1);
+            pictureBox1.Refresh();
+
+        }
+
+        private void симметрияОтносХToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 1, 0, 0, -1);
+            pictureBox1.Refresh();
+
+        }
+
+        private void симметрияОтносYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, -1, 0, 0, 1);
+            pictureBox1.Refresh();
+
+        }
 
 
-        private void локальноеМаштабированиеToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.LocalM;
+        private void симметрияОтносительноНКToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, -1, 0, 0, -1);
+            pictureBox1.Refresh();
+
+        }
 
 
-        private void симметрияОтносХToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OXSymm;
+        private void сдвигВдольОХToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 1, double.Parse(textBox4.Text), 0, -1);
+            pictureBox1.Refresh();
+
+        }
 
 
-        private void симметрияОтносYToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OYSymm;
+        private void сдвигВдольOYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 1, 0, double.Parse(textBox5.Text), -1);
+            pictureBox1.Refresh();
+
+        }
 
 
-        private void симметрияОтносительноНКToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.OOSym;
+        private void поворотНаЗаданныйУголToolStripMenuItem_Click(object sender, EventArgs e) 
+   {
+             Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, Math.Cos(double.Parse(textBox4.Text)*Math.PI/180), Math.Sin(double.Parse(textBox4.Text) * Math.PI / 180), -1*Math.Sin(double.Parse(textBox4.Text) * Math.PI / 180), Math.Cos(double.Parse(textBox4.Text) * Math.PI / 180));
+         //   Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 0, 1, -1, 0);
 
+            pictureBox1.Refresh();
 
-        private void сдвигВдольОХToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.ShiftX;
+        }
 
+    private void симметрияОтносYxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 0, 1, 1, 0);
+            pictureBox1.Refresh();
 
-        private void сдвигВдольOYToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.ShiftY;
+        }
 
+        private void симметрияОтносYxToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Affine.AffineWorks(textBox1.Text, textBox2.Text, textBox3.Text, 0,-1, -1, 0);
+            pictureBox1.Refresh();
 
-        private void поворотНаЗаданныйУголToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Turn;
-
-
-        private void симметрияОтносYxToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.BissTurn;
-
-
-        private void симметрияОтносYxToolStripMenuItem1_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.MinusBissTurn;
-
+        }
 
         private void переносНаЗаданныйВекторToolStripMenuItem_Click(object sender, EventArgs e) => Manager.AffineMode = Manager.AffineType.Proec;
 
@@ -197,6 +197,13 @@ private void label1_Click(object sender, EventArgs e)
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void системаКоординатToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Algorithms.BrezenheimLine(0,190,680,190, Color.Black, Manager.Bitmap);
+            Algorithms.BrezenheimLine(340,0,340,380, Color.Black, Manager.Bitmap);
+            pictureBox1.Refresh();
         }
     }
 }

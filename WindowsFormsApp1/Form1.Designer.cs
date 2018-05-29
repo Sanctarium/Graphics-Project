@@ -54,14 +54,19 @@
             this.симметрияОтносYxToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.переносНаЗаданныйВекторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.общееМаштабированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.треугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.системаКоординатToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +93,8 @@
             this.ToolStripMenuItem7,
             this.ToolStripMenuItem8,
             this.аффиныеПреобразованияToolStripMenuItem,
-            this.треугольникToolStripMenuItem});
+            this.треугольникToolStripMenuItem,
+            this.системаКоординатToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(798, 24);
@@ -330,12 +336,55 @@
             this.textBox3.Size = new System.Drawing.Size(87, 20);
             this.textBox3.TabIndex = 10;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(708, 202);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "a,b";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(711, 219);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(32, 20);
+            this.textBox4.TabIndex = 13;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(711, 259);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(32, 20);
+            this.textBox5.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(708, 242);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(22, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "c,d";
+            // 
+            // системаКоординатToolStripMenuItem
+            // 
+            this.системаКоординатToolStripMenuItem.Name = "системаКоординатToolStripMenuItem";
+            this.системаКоординатToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.системаКоординатToolStripMenuItem.Text = "Система координат";
+            this.системаКоординатToolStripMenuItem.Click += new System.EventHandler(this.системаКоординатToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.white;
             this.ClientSize = new System.Drawing.Size(798, 423);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label2);
@@ -390,6 +439,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem системаКоординатToolStripMenuItem;
     }
 }
 

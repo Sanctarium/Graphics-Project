@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         {
             try { Bitmap.SetPixel(x, y, colorname); }
             catch (ArgumentOutOfRangeException)
-            { Bitmap.SetPixel(Bitmap.Width, Bitmap.Height, colorname); }
+            { Bitmap.SetPixel(Bitmap.Width-2, Bitmap.Height-2, colorname); }
 
         }
       static  public void DrawAffineTriangle(Point p1, Point p2, Point p3, Bitmap bitmap)

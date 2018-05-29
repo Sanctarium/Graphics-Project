@@ -8,8 +8,10 @@ namespace WindowsFormsApp1
 {
     public class Point
     {
-        public double X { get { return (int)X; } set { X = value; } }
-        public double Y { get { return (int)Y; } set { Y=value; } }
+        private double x;
+        private double y;
+        public double X { get { return (int)x; } set { x = value; } }
+        public double Y { get { return (int)y; } set { y=value; } }
         static public int x0 { get; set; }
         static public int y0 { get; set; }
         public double DX { get; set; }
