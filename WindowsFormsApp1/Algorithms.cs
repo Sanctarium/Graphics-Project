@@ -133,7 +133,7 @@ namespace WindowsFormsApp1
             Drawer drawer = new Drawer(bitmap);
             Point pt = new Point(x, y);
             Stack<Point> pixels = new Stack<Point>();
-            
+
             if (bitmap.GetPixel(x, y).ToArgb() != newcolour.ToArgb())
             {
                 pixels.Push(pt);
@@ -174,8 +174,91 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        static public void SazerlendCut(int x1, int y1, int x2, int y2)
+        {
+            int[] window = { 40, 600, 300, 20 };
+            int[] T1 = new int[4];
+            int[] T2 = new int[4];
+            int xt, yt;
+            int vidimost = 0;
+            double naklon = 0;
+            int f = 1;
+            if (x2 - x1 == 0)
+                f = -1;
+            else
+                naklon = (y2 - y1) / (x2 - x1);
+            if (naklon == 0)
+                f = 0;
 
-
+            for (int i = 0; i < 4; i++)
+            {
+                vidimost = Coan(x1, y1, x2, y2, window, ref T1, ref T2);
+                if (vidimost == 1)
+                    DDA(x1, y1, x2, y2, Color.AliceBlue, Manager.Bitmap);
+                if (vidimost == 0)
+                    return;
+                if (T1[3 - i] == T2[3 - i])
+                    continue;
+                if (T1[3 - i] == 0)
+                {
+                    xt = x1;
+                    yt = y1;
+                    x1 = x2;
+                    y1 = y2;
+                    x2 = xt;
+                    y2 = yt;
+                }
+                if (f != -1 && i <= 2)
+                {
+                    y1 = (int)(naklon * (window[i] - x1) + y1);
+                    x1 = window[i];
+                }
+                else
+                if (f != 0)
+                {
+                    if (f != -1)
+                        x1 = (int)((1 / naklon) * (window[i] - y1) + x1);
+                    y1 = window[i];
+                }
+            }
+        }
+        static private int Coan(int x1, int y1, int x2, int y2, int[] window, ref int[] T1, ref int[] T2)
+        {
+            int sum1 = GetPointCodeSum(x1, y1, window, ref T1);
+            int sum2 = GetPointCodeSum(x2, y2, window, ref T2);
+            int vidimost = -1;
+            if (sum1 == 0 && sum2 == 0)
+                vidimost = 1;
+            else
+            {
+                int logMult = LogMult(T1, T2);
+                if (logMult != 0)
+                    vidimost = 0;
+            }
+            return vidimost;
+        }
+        static private int GetPointCodeSum(int x, int y, int[] window, ref int[] T)
+        {
+            int sum = 0;
+            if (x < window[0]) T[3] = 1;
+            else T[3] = 0;
+            if (x > window[1]) T[2] = 1;
+            else T[2] = 0;
+            if (y < window[2]) T[1] = 1;
+            else T[1] = 0;
+            if (y > window[3]) T[0] = 1;
+            else T[0] = 0;
+            for (int i = 0; i < 4; i++)
+                sum += sum + T[i];
+            return sum;
+        }
+        static private int LogMult(int[] T1, int[] T2)
+        {
+            int Mult = 0;
+            for (int i = 0; i < 4; i++)
+                Mult += Mult + ((T1[i] + T2[i]) / 2);
+            return Mult;
+        }
         public struct Point
         {
             public int x;
