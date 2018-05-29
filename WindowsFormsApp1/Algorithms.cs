@@ -176,7 +176,7 @@ namespace WindowsFormsApp1
         }
         static public void SazerlendCut(int x1, int y1, int x2, int y2)
         {
-            int[] window = { 240, 600, 300, 200 };
+            int[] window = { 0, 200, 380, 200 };
             int[] T1 = new int[4];
             int[] T2 = new int[4];
             int xt, yt;
@@ -194,7 +194,7 @@ namespace WindowsFormsApp1
             {
                 vidimost = Coan(x1, y1, x2, y2, window, ref T1, ref T2);
                 if (vidimost == 1)
-                    DDA(x1, y1, x2, y2, Color.AliceBlue, Manager.Bitmap);
+                    DDA(x1, y1, x2, y2, Color.Blue, Manager.Bitmap);
                 if (vidimost == 0)
                     return;
                 if (T1[3 - i] == T2[3 - i])
@@ -244,9 +244,9 @@ namespace WindowsFormsApp1
             else T[3] = 0;
             if (x > window[1]) T[2] = 1;
             else T[2] = 0;
-            if (y < window[2]) T[1] = 1;
+            if (y > window[2]) T[1] = 1;
             else T[1] = 0;
-            if (y > window[3]) T[0] = 1;
+            if (y < window[3]) T[0] = 1;
             else T[0] = 0;
             for (int i = 0; i < 4; i++)
                 sum += sum + T[i];
