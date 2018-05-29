@@ -42,6 +42,7 @@
             this.построчнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,8 @@
             this.toolStripMenuItem1,
             this.ToolStripMenuItem4,
             this.ToolStripMenuItem7,
-            this.ToolStripMenuItem8});
+            this.ToolStripMenuItem8,
+            this.toolStripMenuItem9});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(706, 24);
@@ -148,6 +150,13 @@
             this.ToolStripMenuItem8.Text = "Очистить";
             this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
             // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(78, 20);
+            this.toolStripMenuItem9.Text = "Отсечения";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +191,7 @@
         private System.Windows.Forms.ToolStripMenuItem обычнаяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem построчнаяToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }
 

@@ -176,7 +176,7 @@ namespace WindowsFormsApp1
         }
         static public void SazerlendCut(int x1, int y1, int x2, int y2)
         {
-            int[] window = { 40, 600, 300, 20 };
+            int[] window = { 240, 600, 300, 200 };
             int[] T1 = new int[4];
             int[] T2 = new int[4];
             int xt, yt;

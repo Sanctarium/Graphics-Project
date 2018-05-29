@@ -60,6 +60,9 @@ namespace WindowsFormsApp1
                     Color oldcolor1 = Manager.Bitmap.GetPixel(x1, y1);
                     Algorithms.StringFill(x1, y1, oldcolor1, Color.Blue, Manager.Bitmap);                 
                     break;
+                case Manager.PaintType.SazerlendCut:
+                    Algorithms.SazerlendCut(x1, y1, x2, y2);
+                    break;
             }
         }
 
@@ -97,5 +100,7 @@ namespace WindowsFormsApp1
         private void обычнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.FullFill;
 
         private void построчнаяToolStripMenuItem_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.StringFill;
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e) => Manager.PaintMode = Manager.PaintType.SazerlendCut;
     }
 }
